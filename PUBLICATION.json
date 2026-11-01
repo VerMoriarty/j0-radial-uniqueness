@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "version": "1.0.0",
+  "repository": "https://github.com/VerMoriarty/j0-radial-uniqueness",
+  "release": "https://github.com/VerMoriarty/j0-radial-uniqueness/releases/tag/v1.0.0",
+  "manuscript_sha256": "53e21a915a147c9d2e719833ab1f65dc4a06e076d0744046dc9082273f7100de",
+  "manuscript_pdf_sha256": "95f7accb3a5f41d97c2886cfccbd95f954e241a39c4f1eb4327ba5d5b086fb07",
+  "reviewed_mathematical_manuscript_sha256": "b01cf0ef91ea4ffa6cc9cbc147a1bd958a404c65806a6ede970acb61a74867cd",
+  "mathematical_source_identity": "Every mathematical environment, including proofs, is byte-identical; inverse replacement of the two citation edits recovers the reviewed manuscript exactly.",
+  "numbered_results": 16,
+  "source_math_items": 120,
+  "source_code_scope": "193 original Lean files, including 189 paper proof/definition modules; no mathematical source changes.",
+  "paper_distribution": "The manuscript PDF and TeX are supplied separately, outside the public code repository."
+}

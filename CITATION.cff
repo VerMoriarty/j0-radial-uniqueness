@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: Please cite this fixed release of the accompanying Lean proofs.
+type: software
+title: Formal proofs accompanying Radial Uniqueness of the Nonzero 1-Points of J0
+authors:
+  - family-names: Zhang
+    given-names: Helen W. J.
+  - family-names: Zhao
+    given-names: Chengdong
+version: '1.0.0'
+date-released: '2026-11-01'
+repository-code: 'https://github.com/VerMoriarty/j0-radial-uniqueness'
+url: 'https://github.com/VerMoriarty/j0-radial-uniqueness/releases/tag/v1.0.0'

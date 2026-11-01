@@ -1,0 +1,82 @@
+import Solutions.J0RadialUniqueness.Series
+import Solutions.J0RadialUniqueness.ZeroFree
+import Solutions.J0RadialUniqueness.FAnalytic
+import Solutions.J0RadialUniqueness.FODE
+import Solutions.J0RadialUniqueness.FEnergy
+import Solutions.J0RadialUniqueness.FRightHalfPlane
+import Solutions.J0RadialUniqueness.RealAxis
+import Solutions.J0RadialUniqueness.Localization
+import Solutions.J0RadialUniqueness.LaplaceMoments
+import Solutions.J0RadialUniqueness.K0Connection
+import Solutions.J0RadialUniqueness.BranchGeometry
+import Solutions.J0RadialUniqueness.AmplitudeConstants
+import Solutions.J0RadialUniqueness.Symmetry
+import Solutions.J0RadialUniqueness.Spectral
+import Solutions.J0RadialUniqueness.LaplaceAnalytic
+import Solutions.J0RadialUniqueness.AmplitudeUniform
+import Solutions.J0RadialUniqueness.K0ModifiedODE
+import Solutions.J0RadialUniqueness.K0SeriesLimit
+import Solutions.J0RadialUniqueness.NumericalBounds
+import Solutions.J0RadialUniqueness.LogNorm
+import Solutions.J0RadialUniqueness.SpectralKernel
+import Solutions.J0RadialUniqueness.ExponentialIntegral
+import Solutions.J0RadialUniqueness.LaplaceRealIntegral
+import Solutions.J0RadialUniqueness.SingularBesselUniqueness
+import Solutions.J0RadialUniqueness.SpectralExponential
+import Solutions.J0RadialUniqueness.K0Continuation
+import Solutions.J0RadialUniqueness.Main
+import Solutions.J0RadialUniqueness.ExplicitCounterexample
+import Solutions.J0RadialUniqueness.CircularMeanRegularity
+import Solutions.J0RadialUniqueness.CircularMeanDomain
+import Solutions.J0RadialUniqueness.GlobalWeak
+import Definitions.J0RadialUniqueness.PaperComplete
+import Solutions.J0RadialUniqueness.GlobalTwoRadius
+import Solutions.J0RadialUniqueness.GreenSpectralIntegral
+import Solutions.J0RadialUniqueness.MeanDefectSpectrum
+import Solutions.J0RadialUniqueness.SpectralZeroStrip
+import Solutions.J0RadialUniqueness.LocalConvolution
+import Solutions.J0RadialUniqueness.SimpleZeroDivision
+import Solutions.J0RadialUniqueness.DistributionLaplacian
+import Solutions.J0RadialUniqueness.CircleGreenIdentity
+import Solutions.J0RadialUniqueness.PlanarGreenKernel
+import Solutions.J0RadialUniqueness.HelmholtzCircularMean
+import Solutions.J0RadialUniqueness.WeakRepresentative
+import Solutions.J0RadialUniqueness.ClassicalWeakHarmonic
+import Solutions.J0RadialUniqueness.ChebyshevAbelIntegral
+import Solutions.J0RadialUniqueness.FUniformGap
+import Solutions.J0RadialUniqueness.HelmholtzBallUniqueContinuation
+import Solutions.J0RadialUniqueness.BesselResolventConnection
+import Solutions.J0RadialUniqueness.RotatedK0Bounds
+import Solutions.J0RadialUniqueness.HelmholtzResolventSectorBound
+import Solutions.J0RadialUniqueness.PlanarHelmholtzResolvent
+import Solutions.J0RadialUniqueness.ResolventEntireGrowth
+import Solutions.J0RadialUniqueness.SpectralVerticalBounds
+import Solutions.J0RadialUniqueness.LocalVolchkov
+import Solutions.J0RadialUniqueness.SharpnessSpectral
+import Solutions.J0RadialUniqueness.GeometricSharpness
+import Solutions.J0RadialUniqueness.RealBesselIntegral
+import Solutions.J0RadialUniqueness.K0BoundaryConnection
+import Solutions.J0RadialUniqueness.K0CoshIntegral
+
+/-! Unconditional paper results. Generic conditional reductions remain intermediate
+tools; the wrappers in Main discharge every analytic input for Sections 3--5.
+The finite-ball local theorem discharges the two-radius inputs. The actual
+geometric sharpness proofs are imported and audited separately from the
+numbered conjunction. -/
+
+namespace J0RadialUniqueness
+
+theorem Q_zero_free : QZeroFreeStatement := Q_ne_zero_of_norm_lt_four
+
+theorem paper_laplace_integrability : LaplaceIntegrabilityStatement := laplace_integrability
+
+theorem paper_amplitude_integrability : AmplitudeIntegrabilityStatement := amplitude_integrability
+
+/-- All sixteen numbered paper statements, with their original hypotheses.
+Geometric sharpness is audited separately and is not implied by this conjunction. -/
+theorem PaperComplete : PaperCompleteStatement :=
+  ⟨F_rightHalfPlane, noRealOnePoints, Q_zero_free, globalLocalization,
+    paper_3_1, paper_3_2, paper_4_1, paper_4_2, paper_5_1, paper_5_2, paper_5_3,
+    spectral_equivalence, paper_6_2, paper_6_3, paper_6_4, paper_6_5⟩
+
+end J0RadialUniqueness

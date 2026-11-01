@@ -1,0 +1,6 @@
+.lake/
+CHECK_RUNS/
+CHECK_RESULT.json
+__pycache__/
+*.pyc
+.DS_Store
