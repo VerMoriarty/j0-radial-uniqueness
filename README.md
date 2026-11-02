@@ -1,9 +1,16 @@
 # Radial uniqueness of the nonzero 1-points of J₀
 
-Lean proofs accompanying the paper by Helen W. J. Zhang and Chengdong Zhao.
-The formalization includes all sixteen numbered results, the supporting analytic
-identities, the local and global two-radius results, and both geometric
-counterexamples in Remark 6.6.
+Paper and accompanying Lean proofs by Helen W. J. Zhang and Chengdong Zhao.
+
+**[Read the paper (PDF)](paper/j0_radial_uniqueness.pdf)** ·
+[LaTeX source](paper/main.tex) ·
+[Statement correspondence and verification supplement (ZIP)](paper/final-supplement.zip)
+
+The final manuscript contains sixteen numbered results and 118 retained
+mathematical inventory items, including Introduction A/B/C and the supporting
+identities. The formalization covers the radial escape estimate, raywise
+uniqueness, and the local and global two-radius results. The code also retains
+two additional geometric counterexamples from the original formalization scope.
 
 ## Reproduce
 
@@ -37,20 +44,45 @@ The main entry point is
 numbered results. The geometric counterexamples are checked separately by
 [`Audit.lean`](Audit.lean).
 
-[`correspondence.md`](correspondence.md) and
-[`correspondence.json`](correspondence.json) identify all 120 mathematical items,
-their full Lean types and actual proof evidence.
-[`dependency_closures.json`](dependency_closures.json) records the dependency
-closures. Source line numbers refer to the companion manuscript, which is
-distributed separately. The proof sources and auditor are byte-identical to the
-independently reviewed source archive; their hashes and review provenance are in
+The [final supplement](paper/final-supplement.zip) contains
+`retained-correspondence.json`, which maps the current manuscript's 118 items to
+248 Lean roots, their actual types, definition bodies and proof evidence. It
+also includes the separately checked positive-polar-radius bridge for
+Proposition 5.1. The repeated summary in the abstract, lines 60–61 of
+[`main.tex`](paper/main.tex#L60), is covered by the supplement's `N5.1` and
+`P5.1-DELTA-PROPAGATE` entries and the Lean declarations
+`paper_5_1`, `ray_separation`, and `radial_derivative_decomposition`.
+
+Extract the supplement **outside the code checkout**. Its verifier is bound to
+the fixed proof commit `00d977912114c7fffb189e85051914685dcee5e6` (release
+`v1.0.0`). Use a separate checkout at that commit, or extract the supplement's
+`fixed-code-source.zip`; fetch the pinned dependencies as described above. Run
+from the extracted supplement directory:
+
+```sh
+python3 verify_supplement.py --code-root /path/to/fixed-code --manuscript /path/to/main.tex
+```
+
+This read-only command checks the package and source bindings. The supplement
+README gives live Lean replay commands. Its sealed reports describe the
+pre-publication verification snapshot; this publication does not rewrite them.
+The new `main` commit publishes the paper and updates documentation, so it is
+not the fixed checkout expected by that supplement verifier.
+
+The root-level [`correspondence.md`](correspondence.md),
+[`correspondence.json`](correspondence.json), and
+[`dependency_closures.json`](dependency_closures.json) preserve the historical
+120-item baseline, including the two additional geometric examples. Their
+source line numbers refer to that baseline manuscript. The unchanged proof
+source hashes and review provenance are in
 [`evidence/baseline.json`](evidence/baseline.json).
 
 Kernel verification and mathematical correspondence are distinct checks. The
 public checker performs source and kernel verification. The manuscript wording,
 definitions, and proof correspondence were reviewed separately; publication
-metadata records the corresponding manuscript hash. The paper PDF and TeX are
-not included in this code repository.
+metadata in [`PUBLICATION.json`](PUBLICATION.json) records the current
+manuscript, PDF and supplement hashes. All 193 Lean source files and the fixed
+`v1.0.0` proof release remain unchanged.
 
 ## Cite
 

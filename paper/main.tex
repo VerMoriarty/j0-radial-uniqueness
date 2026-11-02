@@ -1,0 +1,816 @@
+\documentclass[11pt]{amsart}
+
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+
+
+\renewcommand{\subjclassname}{2020 Mathematics Subject Classification}
+
+\numberwithin{equation}{section}
+\setlength{\emergencystretch}{3em}
+\urlstyle{same}
+\raggedbottom
+
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\Arg}{Arg}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newtheorem*{theoremA}{Theorem A}
+\newtheorem*{corollaryB}{Corollary B}
+\newtheorem*{corollaryC}{Corollary C}
+
+\newcommand{\C}{\mathbb C}
+\newcommand{\R}{\mathbb R}
+\newcommand{\D}{\mathcal D}
+\newcommand{\Hplus}{\mathbb H_+}
+
+\title[Radial uniqueness of the nonzero 1-points of $J_0$]
+{Radial Uniqueness of the Nonzero \texorpdfstring{$1$}{1}-Points of \texorpdfstring{$J_0$}{J0}}
+\author{Helen W.~J. Zhang}
+\address{School of Mathematics, Hunan University}
+\email{helenzhang@hnu.edu.cn}
+\thanks{Helen W.~J. Zhang was supported by the National Natural Science Foundation of China (Grant No.~12371327) and Hunan Provincial Natural Science Foundation of China (Grant No.~2026JJ50107).}
+
+\author{Chengdong Zhao}
+\address{School of Mathematics and Statistics, Central South University}
+\email{cdzhao@csu.edu.cn}
+\date{}
+\subjclass[2020]{Primary 33C10; Secondary 30D20, 31A05, 35J05}
+\keywords{Bessel function, 1-point, radial uniqueness, radial escape, circular mean, two-radius theorem}
+
+\begin{document}
+
+\begin{abstract}
+We answer Problem~2.45 in the Hayman--Lingham problem collection.  If
+$z_0\ne0$, $J_0(z_0)=1$, and $c>1$, then
+$|J_0(cz_0)|>c^{7/25}$.  Hence no two distinct nonzero
+$1$-points of $J_0$ lie on the same open ray from the origin.  The proof uses
+an exact, branch-consistent Laplace decomposition into growing and decaying
+components, and uniform estimates show that
+the separation persists along the outward ray and yields a positive radial
+logarithmic derivative.  As an application, for distinct positive radii
+$r_1,r_2$ and $R>r_1+r_2$, raywise uniqueness makes Volchkov's positive nonunit
+spectral-ratio exclusion automatic in the local planar spherical-mean
+theorem and gives the corresponding global $L^1_{\mathrm{loc}}$ result.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+
+Let $J_0$ denote the Bessel function of the first kind of order zero.
+Problem~2.45 in the Hayman--Lingham edition of Hayman's problem collection
+asks whether $J_0(z)=1$ has at most one nonzero solution on each ray from
+the origin.  Hayman and Lingham attribute the question to L.~Zalcman and
+record that the available asymptotic information gives only finitely many
+solutions on any fixed ray
+\cite[Problem~2.45]{HaymanLingham2019}.
+
+We answer this question by proving the following stronger estimate.
+
+\begin{theoremA}
+If $z_0\in\C\setminus\{0\}$ and $J_0(z_0)=1$, then
+\[
+   |J_0(cz_0)|>c^{7/25}\qquad(c>1).
+\]
+\end{theoremA}
+
+Since $c^{7/25}>1$ for $c>1$, Theorem~A answers Problem~2.45 immediately.
+
+\begin{corollaryB}
+For every $\theta\in[0,2\pi)$,
+\[
+   \#\{r>0:J_0(re^{i\theta})=1\}\le1.
+\]
+Equivalently, no two distinct nonzero $1$-points of $J_0$ lie on the same
+open ray from the origin.
+\end{corollaryB}
+
+The question also has a spectral interpretation in converse mean-value
+theorems.  Delsarte and Lions showed that two fixed spherical mean
+identities force harmonicity when the corresponding averaging operators
+have no nonzero common fixed spectral mode \cite{DelsarteLions1959}; the
+Euclidean formulation is given in Delsarte's lectures
+\cite[Part~III, \S\S3--4]{Delsarte1961}.  In dimension two the common
+spectral equations are
+\[
+   J_0(i\lambda r_1)=J_0(i\lambda r_2)=1,\qquad\lambda\ne0.
+\]
+If $0<r_1<r_2$, $c=r_2/r_1$, and $z=i\lambda r_1$, these equations become
+$J_0(z)=J_0(cz)=1$.  Thus a positive nonunit spectral ratio occurs exactly
+when two nonzero $1$-points lie on one open ray.
+
+Volchkov's local planar classification separates the strict geometric
+condition $R>r_1+r_2$ from the exclusion of a Bessel root-ratio set
+\cite{Volchkov1996}.  Theorem~A removes the positive nonunit part of this
+spectral obstruction, yielding the following consequence.
+
+\begin{corollaryC}
+Let $B_R:=\{x\in\R^2:|x|<R\}$, let $r_1,r_2$ be distinct positive radii,
+and let $R>r_1+r_2$.  If $f\in L^1_{\mathrm{loc}}(B_R)$ satisfies the
+normalized circular mean identities at $r_1$ and $r_2$ almost everywhere
+on their natural domains, then $\Delta f=0$ in $\D'(B_R)$.  In the
+full-space case, if $f\in L^1_{\mathrm{loc}}(\R^2)$ satisfies the two
+identities almost everywhere on $\R^2$, then $\Delta f=0$ in $\D'(\R^2)$.
+\end{corollaryC}
+
+A radial energy identity and an elementary zero-free disk first localize
+every nonzero $1$-point.  On the
+principal branch of $K_0$, a Laplace representation then gives an exact,
+branch-consistent decomposition of $J_0$ into growing and decaying
+components.  Uniform amplitude estimates separate the two components at
+each principal-sector $1$-point, and this separation persists along the
+whole outward ray.  The resulting lower bound for the radial logarithmic
+derivative implies Theorem~A; evenness and conjugation symmetry give
+the global statement.
+
+This paper was submitted on 30 August 2026.  Ferudun's preprint
+\cite{Ferudun2026}, dated 3 October 2026, presents a computer-assisted proof
+of the same raywise uniqueness statement.  Both arguments separate growing
+and decaying Bessel components.  Ferudun combines explicit Hankel bounds,
+contraction and Rouch\'e arguments, certified root counting, and ordering
+of root arguments.  Our proof uses an exact $K_0$ Laplace decomposition and
+uniform amplitude and derivative estimates propagated along outward rays
+to obtain the quantitative estimate of Theorem~A, without enumerating the
+$1$-points.
+
+Section~\ref{sec:localization} gives the localization.  Sections
+\ref{sec:laplace} and~\ref{sec:components} establish the exact decomposition
+and the uniform component bounds.  Section~\ref{sec:escape} proves radial
+escape and answers Problem~2.45.  Section~\ref{sec:two-radius} proves the
+two-radius consequences and compares them with Volchkov's local theorem.
+
+The results proved here have been formalized in Lean~4 using
+mathlib~\cite{Lean4,mathlib}. The source code, statement correspondence,
+and reproducible build instructions are available in the
+\href{https://github.com/VerMoriarty/j0-radial-uniqueness}
+{accompanying GitHub repository}.
+
+\section{Preliminary localization of the nonzero \texorpdfstring{$1$}{1}-points}
+\label{sec:localization}
+
+We use the defining series
+\begin{equation*}
+   J_0(z):=\sum_{m=0}^{\infty}\frac{(-1)^m z^{2m}}{4^m(m!)^2},
+   \qquad z\in\C.
+\end{equation*}
+Set
+\[
+   F(w):=\sum_{m=0}^{\infty}\frac{w^m}{(m!)^2},
+   \qquad
+   Q(w):=\sum_{n=0}^{\infty}\frac{w^n}{((n+1)!)^2}.
+\]
+Then
+\begin{equation}\label{eq:J0-FQ-relations}
+   J_0(z)=F\!\left(-\frac{z^2}{4}\right),
+   \qquad
+   F(w)-1=wQ(w).
+\end{equation}
+
+\begin{lemma}\label{lem:F-right-half-plane}
+If $w\ne0$ and $\Re w\ge0$, then $|F(w)|>1$.
+\end{lemma}
+
+\begin{proof}
+Termwise differentiation gives $wF''(w)+F'(w)=F(w)$.  Put
+$h(s)=F(sw)$ and $Y(s)=|h(s)|^2$.  Then $sh''+h'=wh$, and integration of
+$(sY')'=2(s|h'|^2+\Re w\,|h|^2)$ gives
+\begin{equation}\label{eq:F-energy-identity}
+   sY'(s)=2\int_0^s
+   \left(u|h'(u)|^2+\Re w\,|h(u)|^2\right)du.
+\end{equation}
+The integrand is nonnegative for $u\ge0$.  Since $h'(0)=w\ne0$, its first
+term is positive for all sufficiently small $u>0$.  Thus $Y'(s)>0$ for
+every $s>0$, and $|F(w)|^2=Y(1)>Y(0)=1$.
+\end{proof}
+
+\begin{lemma}\label{lem:no-real-one-points}
+For every $x\in\R\setminus\{0\}$, one has $|J_0(x)|<1$.
+\end{lemma}
+
+\begin{proof}
+Put $q=x^2/4>0$ and $h(s)=F(-qs)$.  The equation for $F$ gives
+$sh''+h'=-qh$.  Hence the energy
+\[
+   E(s):=|h(s)|^2+\frac{s}{q}|h'(s)|^2
+   \qquad\text{satisfies}\qquad
+   E'(s)=-\frac1q|h'(s)|^2.
+\]
+Since $h'(0)=-q\ne0$, integration on $[0,1]$ gives $E(1)<E(0)=1$.
+Therefore $|J_0(x)|^2=|h(1)|^2\le E(1)<1$.
+\end{proof}
+
+\begin{lemma}\label{lem:Q-zero-free}
+The function $Q$ has no zero in the disk $|w|<4$.
+\end{lemma}
+
+\begin{proof}
+Write $w=4u$, where $|u|<1$, and put $b_n=4^n/((n+1)!)^2$.  The sequence
+$(b_n)$ is nonnegative and summable, with $b_0=1$ and
+$b_{n+1}/b_n=4/(n+2)^2\le1$.  Set $d_n=b_n-b_{n+1}\ge0$.  Absolute
+convergence and telescoping give
+\begin{equation}\label{eq:Q-Abel-transform}
+   (1-u)Q(4u)=1-\sum_{n=0}^{\infty}d_nu^{n+1},
+   \qquad
+   \sum_{n=0}^{\infty}d_n=1.
+\end{equation}
+Moreover,
+\[
+   \left|\sum_{n=0}^{\infty}d_nu^{n+1}\right|
+   \le |u|\sum_{n=0}^{\infty}d_n=|u|<1.
+\]
+Thus $(1-u)Q(4u)\ne0$, and hence $Q(w)\ne0$.
+\end{proof}
+
+\begin{proposition}\label{prop:global-localization}
+If $J_0(z)=1$ and $z\ne0$, then
+$
+   \Re(z^2)>0$, $z\notin\R$, $|z|\ge4$.
+\end{proposition}
+
+\begin{proof}
+Let $w=-z^2/4$.  If $\Re(z^2)\le0$, then $w\ne0$ and $\Re w\ge0$, so
+Lemma~\ref{lem:F-right-half-plane} gives $|J_0(z)|=|F(w)|>1$, a
+contradiction.  Lemma~\ref{lem:no-real-one-points} excludes nonzero real
+$z$.  Finally, \eqref{eq:J0-FQ-relations} gives $wQ(w)=0$.  Since $w\ne0$,
+Lemma~\ref{lem:Q-zero-free} yields $|w|\ge4$, and hence $|z|\ge4$.
+\end{proof}
+
+Thus every nonzero $1$-point lies in one of the four open sectors adjacent
+to the real axis.  By evenness and conjugation symmetry, it will later be
+enough to work in $0<\arg z<\pi/4$.
+
+\section{An exact Laplace decomposition}\label{sec:laplace}
+
+Let $\Omega=\C\setminus(-\infty,0]$.  On $\Omega$ we use the principal
+logarithm $\Log w=\log|w|+i\Arg w$, where $-\pi<\Arg w<\pi$, and define all
+half-integral powers through this branch.  Let $K_0$ denote the modified
+Bessel function of the second kind of order zero, with its principal branch.
+Put
+\[
+   d\mu(t):=\frac{e^{-t}t^{-1/2}}{\sqrt\pi}\,dt,
+   \qquad
+   \int_0^\infty d\mu(t)=1,
+   \qquad
+   \int_0^\infty t\,d\mu(t)=\frac12.
+\]
+For $w\in\Omega$, define
+\[
+   \mathcal I(w):=\int_0^\infty
+   \left(1+\frac{t}{2w}\right)^{-1/2}d\mu(t),
+   \qquad
+   \mathcal K(w):=\sqrt{\frac{\pi}{2w}}e^{-w}\mathcal I(w).
+\]
+
+\begin{proposition}\label{prop:K-Laplace}
+The functions $\mathcal I$ and $\mathcal K$ are holomorphic on $\Omega$,
+\[
+   \mathcal I'(w)=\frac{1}{4w^2}\int_0^\infty
+   t\left(1+\frac{t}{2w}\right)^{-3/2}d\mu(t),
+\]
+and $\mathcal K(w)=K_0(w)$ for every $w\in\Omega$.
+\end{proposition}
+
+\begin{proof}
+For $w\in\Omega$ and $t>0$, the point $1+t/(2w)$ does not lie on
+$(-\infty,0]$: otherwise $1+t/(2w)=-s$ for some $s\ge0$, and then
+$w=-t/[2(1+s)]\in(-\infty,0)$.  Thus the integrand is holomorphic in $w$ on
+$\Omega$.
+
+Let $L\Subset\Omega$ be nonempty and compact.  Compactness gives positive
+constants $m_L,M_L,\eta_L$ such that, for $w\in L$ and $0\le s\le1$,
+\[
+   m_L\le |w|\le M_L,
+   \qquad |2(1-s)w+s|\ge\eta_L.
+\]
+Indeed, a zero of the latter expression would force either $s=1$ and
+$1=0$, or $w=-s/[2(1-s)]\in(-\infty,0]$.  Taking $s=t/(1+t)$ shows that
+\[
+   \left|1+\frac{t}{2w}\right|\ge c_L:=\frac{\eta_L}{2M_L}>0
+   \qquad(w\in L,\ t\ge0).
+\]
+The kernel is therefore bounded on $L$ by $c_L^{-1/2}$.  Its derivative is
+\[
+   \frac{\partial}{\partial w}
+   \left(1+\frac{t}{2w}\right)^{-1/2}
+   =\frac{t}{4w^2}\left(1+\frac{t}{2w}\right)^{-3/2},
+\]
+whose modulus is at most $t c_L^{-3/2}/(4m_L^2)$.  The mass and first
+moment of $\mu$ now justify differentiation under the integral sign.
+This proves the holomorphy of $\mathcal I$ and its derivative formula;
+the defining prefactor then gives the holomorphy of $\mathcal K$.
+
+For $w>0$, the standard representation \cite[10.32.9]{DLMF}
+\[
+   K_0(w)=\int_0^\infty e^{-w\cosh u}\,du
+\]
+and the substitution $t=w(\cosh u-1)$ give
+\[
+   K_0(w)=e^{-w}\int_0^\infty
+   \frac{e^{-t}}{\sqrt{t(2w+t)}}\,dt=\mathcal K(w).
+\]
+The principal branch of $K_0$ is holomorphic on $\Omega$
+\cite[Sec.~10.25(ii)]{DLMF}.  Since $\Omega$ is connected, the identity
+theorem yields $\mathcal K=K_0$ throughout $\Omega$.
+\end{proof}
+
+Let $\Hplus=\{z\in\C:\Re z>0\}$.  For $z\in\Hplus$, define
+\begin{equation*}
+   A_\pm(z):=\int_0^\infty
+   \left(1\pm\frac{it}{2z}\right)^{-1/2}d\mu(t).
+\end{equation*}
+
+\begin{proposition}\label{prop:exact-decomposition}
+The functions $A_\pm$ are holomorphic on $\Hplus$ and satisfy
+\begin{equation}\label{eq:Apm-derivative}
+   A_\pm'(z)=\pm\frac{i}{4z^2}\int_0^\infty
+   t\left(1\pm\frac{it}{2z}\right)^{-3/2}d\mu(t).
+\end{equation}
+Moreover, for every $z\in\Hplus$,
+\begin{equation}\label{eq:exact-J0-decomposition}
+   J_0(z)=\frac{e^{i(z-\pi/4)}A_+(z)+e^{-i(z-\pi/4)}A_-(z)}
+   {\sqrt{2\pi z}},
+\end{equation}
+where the square root is taken on the principal branch.
+\end{proposition}
+
+\begin{proof}
+Since $-iz,iz\in\Omega$ for $z\in\Hplus$, one has
+$A_+(z)=\mathcal I(-iz)$ and $A_-(z)=\mathcal I(iz)$.  Holomorphy and
+\eqref{eq:Apm-derivative} follow from Proposition~\ref{prop:K-Laplace} and
+the chain rule.
+
+Write $z=re^{i\theta}$ with $-\pi/2<\theta<\pi/2$.  Then
+\[
+   \Log(iz)=\Log z+\frac{\pi i}{2},
+   \qquad
+   \Log(-iz)=\Log z-\frac{\pi i}{2},
+\]
+and therefore
+\begin{equation*}
+   (iz)^{-1/2}=e^{-\pi i/4}z^{-1/2},
+   \qquad
+   (-iz)^{-1/2}=e^{\pi i/4}z^{-1/2}.
+\end{equation*}
+Proposition~\ref{prop:K-Laplace} gives
+\[
+\begin{aligned}
+   K_0(-iz)&=\sqrt{\frac\pi2}\,e^{\pi i/4}z^{-1/2}e^{iz}A_+(z),\\
+   K_0(iz)&=\sqrt{\frac\pi2}\,e^{-\pi i/4}z^{-1/2}e^{-iz}A_-(z).
+\end{aligned}
+\]
+The standard connection formula \cite[10.27.9]{DLMF}, specialized to order
+zero, is
+\[
+   \pi iJ_0(z)=K_0(-iz)-K_0(iz),
+   \qquad \Re z>0,
+\]
+with both values taken on the principal branch.  Substitution and the identities
+\[
+   \frac{1}{\pi i}\sqrt{\frac\pi2}e^{\pi i/4}
+   =\frac{e^{-\pi i/4}}{\sqrt{2\pi}},
+   \qquad
+   -\frac{1}{\pi i}\sqrt{\frac\pi2}e^{-\pi i/4}
+   =\frac{e^{\pi i/4}}{\sqrt{2\pi}}
+\]
+yield \eqref{eq:exact-J0-decomposition}.
+\end{proof}
+
+\section{Control of the two components}\label{sec:components}
+
+Let $z=x+iy=\rho e^{i\theta}$, where $\rho>0$ and
+$0\le\theta\le\pi/4$, and put $\kappa=2^{-9/4}$.
+
+\begin{proposition}\label{prop:A-uniform-estimates}
+In this closed sector,
+\begin{equation}\label{eq:A-uniform-estimates}
+   |A_\pm(z)-1|\le\frac{\kappa}{\rho},
+   \qquad
+   |A_\pm'(z)|\le\frac{\kappa}{\rho^2}.
+\end{equation}
+If $\rho\ge4$, then
+\begin{equation}\label{eq:A-modulus-bounds}
+   \frac{15}{16}<|A_\pm(z)|<\frac{17}{16},
+   \qquad
+   \left|z\frac{A_\pm'(z)}{A_\pm(z)}\right|<\frac1{15}.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Since $x\ge y\ge0$ and $x>0$, completing squares in Cartesian
+coordinates gives, for $t\ge0$ and $0\le\sigma\le1$,
+\[
+   \left|1+\sigma\frac{it}{2z}\right|^2\ge1,
+   \qquad
+   \left|1-\sigma\frac{it}{2z}\right|^2\ge\frac12.
+\]
+For $t>0$ and $\sigma>0$, these points have respectively positive and
+negative imaginary parts; the zero endpoints equal $1$.  Thus both line
+segments avoid the principal cut.  Along either segment, the derivative
+of $(1+\sigma\xi)^{-1/2}$, where $\xi=\pm it/(2z)$, has modulus at most
+$2^{3/4}|\xi|/2$.  The mean-value estimate therefore gives
+\[
+   \left|\left(1\pm\frac{it}{2z}\right)^{-1/2}-1\right|
+   \le\frac{2^{3/4}t}{4\rho}.
+\]
+Using $\int t\,d\mu(t)=1/2$ proves the first estimate in
+\eqref{eq:A-uniform-estimates}.  The derivative formula
+\eqref{eq:Apm-derivative} and the same geometric bounds give the second.
+
+If $\rho\ge4$, then $\kappa/\rho<1/16$.  The triangle and reverse triangle
+inequalities yield $15/16<|A_\pm(z)|<17/16$; in particular, $A_\pm(z)\ne0$.
+Finally,
+\[
+   \left|z\frac{A_\pm'(z)}{A_\pm(z)}\right|
+   <\frac1{15}.
+\]
+\end{proof}
+
+Let
+\[
+   \mathcal U:=\{z\in\Hplus:A_+(z)A_-(z)\ne0\}.
+\]
+Since $A_+A_-$ is holomorphic on $\Hplus$, the set $\mathcal U$ is open.
+On $\mathcal U$, define
+\begin{equation}\label{eq:delta-definition}
+   \delta(z):=e^{2i(z-\pi/4)}\frac{A_+(z)}{A_-(z)}.
+\end{equation}
+Then, throughout $\mathcal U$,
+\begin{equation}\label{eq:J0-factorized}
+   J_0(z)=\frac{e^{-i(z-\pi/4)}A_-(z)}{\sqrt{2\pi z}}
+   \bigl(1+\delta(z)\bigr).
+\end{equation}
+
+\begin{proposition}\label{prop:quantitative-separation}
+Suppose $J_0(z)=1$ and $z=x+iy=\rho e^{i\theta}$ with
+$0<\theta<\pi/4$.  Then $z\in\mathcal U$, and
+\begin{equation*}
+   y>\frac75,\qquad e^{-2y}<\frac1{16},\qquad
+   |\delta(z)|<\frac{17}{240},\qquad
+   \rho e^{-2y}<\frac{11}{50}.
+\end{equation*}
+\end{proposition}
+
+\begin{proof}
+By Proposition~\ref{prop:global-localization}, $\rho\ge4$, so
+Proposition~\ref{prop:A-uniform-estimates} gives $z\in\mathcal U$.
+Using $J_0(z)=1$, \eqref{eq:exact-J0-decomposition}, and
+\eqref{eq:A-modulus-bounds}, we obtain
+\[
+   \sqrt{8\pi}\le\sqrt{2\pi\rho}
+   \le\frac{17}{16}(e^y+e^{-y})=\frac{17}{8}\cosh y.
+\]
+Hence $\cosh y\ge(8/17)\sqrt{8\pi}>11/5$.  Together with
+$\cosh(7/5)<11/5$ and $e^{14/5}>16$, this gives $y>7/5$ and
+$e^{-2y}<1/16$, since $y>0$.
+
+By \eqref{eq:delta-definition} and \eqref{eq:A-modulus-bounds},
+\[
+   |\delta(z)|
+   =e^{-2y}\left|\frac{A_+(z)}{A_-(z)}\right|
+   <\frac1{16}\frac{17}{15}=\frac{17}{240}.
+\]
+Multiplying the preceding bound for $\sqrt{2\pi\rho}$ by $e^{-y}$ gives
+\[
+   \sqrt{2\pi\rho}\,e^{-y}
+   \le\frac{17}{16}(1+e^{-2y})
+   \le\left(\frac{17}{16}\right)^2.
+\]
+Squaring and using $\pi>3$, we conclude that
+\[
+   \rho e^{-2y}
+   \le\frac{(17/16)^4}{2\pi}
+   <\frac{(17/16)^4}{6}
+   <\frac{11}{50}.\qedhere
+\]
+\end{proof}
+
+Proposition~\ref{prop:quantitative-separation} is the point at which the
+increasing component becomes uniformly dominant.  The next section shows
+that this dominance persists along the whole outward ray.
+
+\section{Radial escape}\label{sec:escape}
+
+\begin{proposition}
+\label{prop:principal-radial-escape}
+Suppose $J_0(z_1)=1$ and
+$z_1=x_1+iy_1=\rho_1e^{i\theta}$ with $\rho_1>0$ and
+$0<\theta<\pi/4$.  For
+$\tau\ge1$, put $z_\tau=\tau z_1$.  Then
+\begin{equation}\label{eq:radial-log-derivative}
+   \tau\frac{d}{d\tau}\log|J_0(z_\tau)|>\frac7{25}
+   \qquad(\tau\ge1),
+\end{equation}
+and hence
+\begin{equation}\label{eq:principal-radial-escape}
+   |J_0(cz_1)|>c^{7/25}\qquad(c>1).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Let $\rho_\tau=|z_\tau|=\tau\rho_1$ and
+$y_\tau=\Im z_\tau=\tau y_1$.  The argument is fixed and
+$\rho_\tau\ge\rho_1\ge4$, so Proposition~\ref{prop:A-uniform-estimates}
+applies along the entire ray.
+
+By Proposition~\ref{prop:quantitative-separation},
+$\rho_1e^{-2y_1}<11/50$.  Since
+\[
+   \rho_\tau e^{-2y_\tau}
+   =\rho_1e^{-2y_1}\,\tau e^{-2(\tau-1)y_1}
+\]
+and $\log\tau\le\tau-1$, we have
+$\tau e^{-2(\tau-1)y_1}\le1$.  Hence
+\begin{equation*}
+   \rho_\tau e^{-2y_\tau}<\frac{11}{50}.
+\end{equation*}
+Also $e^{-2y_\tau}<1/16$.  Therefore
+\begin{equation}\label{eq:delta-propagated}
+   |\delta(z_\tau)|<\frac{17}{240},
+   \qquad
+   \rho_\tau|\delta(z_\tau)|<\frac{187}{750}.
+\end{equation}
+Thus $1+\delta(z_\tau)\ne0$, while
+$A_-(z_\tau)\ne0$ by \eqref{eq:A-modulus-bounds}.  The factorization
+\eqref{eq:J0-factorized} implies
+\begin{equation}\label{eq:J0-ray-nonzero}
+   J_0(z_\tau)\ne0\qquad(\tau\ge1).
+\end{equation}
+
+Since $J_0$ is entire, \eqref{eq:J0-ray-nonzero} and the identity
+$\log|g|=\tfrac12\log|g|^2$ for $g\ne0$ show that $\log|J_0(\tau z_1)|$ is
+differentiable near each $\tau\ge1$, including $\tau=1$.
+Logarithmic differentiation of \eqref{eq:J0-factorized} along the ray gives
+\begin{equation}\label{eq:radial-derivative-decomposition}
+\begin{aligned}
+   \tau\frac{d}{d\tau}\log|J_0(z_\tau)|
+   =y_\tau-\frac12 +\Re\left(
+   z_\tau\frac{A_-'(z_\tau)}{A_-(z_\tau)}
+   +z_\tau\frac{\delta'(z_\tau)}{1+\delta(z_\tau)}
+   \right).
+\end{aligned}
+\end{equation}
+Differentiation of \eqref{eq:delta-definition} gives
+\begin{equation}\label{eq:delta-derivative}
+   z\delta'(z)=\delta(z)\left(
+   2iz+z\frac{A_+'(z)}{A_+(z)}
+   -z\frac{A_-'(z)}{A_-(z)}
+   \right).
+\end{equation}
+Using \eqref{eq:delta-derivative}, \eqref{eq:A-modulus-bounds},
+\eqref{eq:delta-propagated}, and the triangle inequality, we obtain
+\[
+   \left|z_\tau\frac{A_-'(z_\tau)}{A_-(z_\tau)}
+   +z_\tau\frac{\delta'(z_\tau)}{1+\delta(z_\tau)}\right|
+   <\frac1{15}
+   +\frac{2(187/750)+(2/15)(17/240)}{1-17/240}
+   <\frac{31}{50}.
+\]
+Substitution into \eqref{eq:radial-derivative-decomposition}, together with
+$y_\tau\ge y_1>7/5$, proves \eqref{eq:radial-log-derivative}.
+Finally, put
+\[
+   H(\tau):=\log|J_0(\tau z_1)|-\frac7{25}\log\tau.
+\]
+The bound \eqref{eq:radial-log-derivative} gives $H'(\tau)>0$ for
+$\tau\ge1$.  Since $H(1)=0$, the mean value theorem yields $H(c)>0$ for
+$c>1$, which proves \eqref{eq:principal-radial-escape}.
+\end{proof}
+
+\begin{theorem}\label{thm:global-radial-escape}
+If $z_0\in\C\setminus\{0\}$ and $J_0(z_0)=1$, then
+\begin{equation}\label{eq:global-radial-escape}
+   |J_0(cz_0)|>c^{7/25}\qquad(c>1).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The defining series gives $J_0(-z)=J_0(z)$ and
+$J_0(\overline z)=\overline{J_0(z)}$.  Write $z_0=x+iy$.  By
+Proposition~\ref{prop:global-localization}, $0<|y|<|x|$.  Thus
+$w=|x|+i|y|$ lies in $0<\arg w<\pi/4$ and is one of
+$\pm z_0,\pm\overline{z_0}$.  Hence $J_0(w)=1$ and, for every real $c>0$,
+$|J_0(cw)|=|J_0(cz_0)|$.  Proposition~\ref{prop:principal-radial-escape}
+applied to $w$ proves \eqref{eq:global-radial-escape}.
+\end{proof}
+
+\begin{corollary}\label{cor:ray-uniqueness}
+For every $\theta\in[0,2\pi)$,
+$
+   \#\{r>0:J_0(re^{i\theta})=1\}\le1.
+$
+\end{corollary}
+
+\begin{proof}
+If $0<r_1<r_2$ gave two solutions on the same ray, then with
+$c=r_2/r_1>1$ and $z_1=r_1e^{i\theta}$,
+Theorem~\ref{thm:global-radial-escape} would give
+$|J_0(r_2e^{i\theta})|=|J_0(cz_1)|>1$, a contradiction.
+\end{proof}
+
+\section{Two-radius consequences}\label{sec:two-radius}
+
+For $R>0$, let $B_R=\{x\in\R^2:|x|<R\}$.  If
+$f\in L^1_{\mathrm{loc}}(B_R)$ and $0<r<R$, define the normalized circular mean
+\[
+   M_rf(x):=\frac1{2\pi}\int_0^{2\pi}
+   f\bigl(x+r(\cos t,\sin t)\bigr)\,dt
+\]
+for almost every $x\in B_{R-r}$.  Fubini's theorem shows that this defines
+an $L^1_{\mathrm{loc}}(B_{R-r})$ function independently of the chosen
+representative of $f$.
+
+The full-space conditional two-radius theorem goes back to Delsarte and
+Lions \cite{DelsarteLions1959,Delsarte1961}.  Volchkov later obtained a
+sharp local formulation that separates the spectral obstruction from the
+geometric condition on $R,r_1,r_2$ \cite[Theorem~1]{Volchkov1996}.  In
+dimension two, define
+\[
+   Z:=\{z\in\C\setminus\{0\}:J_0(z)=1\},
+   \qquad
+   \mathcal A:=\left\{\frac{\alpha}{\beta}:\alpha,\beta\in Z\right\}.
+\]
+
+\begin{proposition}\label{prop:spectral-equivalence}
+For positive radii $r_1,r_2$, the following are equivalent:
+\begin{enumerate}
+\item $r_1/r_2\in\mathcal A$;
+\item there exists $\lambda\in\C\setminus\{0\}$ such that
+\[
+   J_0(i\lambda r_1)=J_0(i\lambda r_2)=1.
+\]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+If $\alpha/\beta=r_1/r_2$ with $\alpha,\beta\in Z$, set
+$\lambda=-i\alpha/r_1=-i\beta/r_2$.  Conversely, a common nonzero spectral
+point gives $\alpha=i\lambda r_1$, $\beta=i\lambda r_2$, and
+$\alpha/\beta=r_1/r_2$.
+\end{proof}
+
+A common nonzero spectral parameter gives the following counterexample.
+
+\begin{proposition}\label{prop:explicit-counterexample}
+If the equivalent conditions in Proposition~\ref{prop:spectral-equivalence}
+hold, then there is a real-valued $C^\infty$ function on $\R^2$ that is not
+harmonic and satisfies both circular mean identities.
+\end{proposition}
+
+\begin{proof}
+For $F_\lambda(x_1,x_2)=e^{\lambda x_1}$,
+\[
+   M_rF_\lambda
+   =F_\lambda\frac1{2\pi}\int_0^{2\pi}e^{\lambda r\cos t}\,dt
+   =J_0(i\lambda r)F_\lambda.
+\]
+Thus the two common spectral identities imply
+$M_{r_1}F_\lambda=M_{r_2}F_\lambda=F_\lambda$, whereas
+$\Delta F_\lambda=\lambda^2F_\lambda$.  At the origin this Laplacian equals
+$\lambda^2\ne0$, so at least one of $\Re F_\lambda$ and $\Im F_\lambda$
+is a real-valued smooth nonharmonic example satisfying the same identities.
+\end{proof}
+
+Theorem~\ref{thm:global-radial-escape} gives
+\begin{equation}\label{eq:positive-ratio-removal}
+   (\mathcal A\cap(0,\infty))\setminus\{1\}=\varnothing.
+\end{equation}
+Indeed, if $\alpha/\beta=c>0$ with $c\ne1$, then either $c>1$ or
+$c^{-1}>1$, and two distinct points of $Z$ would lie on one open ray.
+
+We use the following dimension-two specialization of Volchkov's local
+theorem \cite[Theorem~1(i)]{Volchkov1996}.
+
+\begin{theorem}\label{thm:Volchkov-local}
+Let $r_1,r_2>0$, let $R>r_1+r_2$, and let
+$f\in L^1_{\mathrm{loc}}(B_R)$.  Suppose
+\[
+   M_{r_j}f=f\quad\text{a.e. on }B_{R-r_j},
+   \qquad j=1,2.
+\]
+If $r_1/r_2\notin\mathcal A$, then $\Delta f=0$ in $\D'(B_R)$.
+\end{theorem}
+
+\begin{corollary}
+\label{cor:local-two-radius}
+Let $r_1\ne r_2$ be positive, let $R>r_1+r_2$, and let
+$f\in L^1_{\mathrm{loc}}(B_R)$.  If
+\[
+   M_{r_j}f=f\quad\text{a.e. on }B_{R-r_j},
+   \qquad j=1,2,
+\]
+then $\Delta f=0$ in $\D'(B_R)$.
+\end{corollary}
+
+\begin{proof}
+The ratio $r_1/r_2$ is positive and different from $1$.  By
+\eqref{eq:positive-ratio-removal}, it does not belong to $\mathcal A$.
+The conclusion follows from Theorem~\ref{thm:Volchkov-local}.
+\end{proof}
+
+\begin{corollary}
+\label{cor:global-two-radius}
+Let $f\in L^1_{\mathrm{loc}}(\R^2)$, and let $r_1\ne r_2$ be positive.  If
+\[
+   M_{r_1}f=M_{r_2}f=f\quad\text{a.e. on }\R^2,
+\]
+then $\Delta f=0$ in $\D'(\R^2)$.  Consequently, $f$ agrees almost
+everywhere with a smooth harmonic function.  If $f$ is continuous, then
+$f$ itself is harmonic and has the circular mean-value property at every
+positive radius.
+\end{corollary}
+
+\begin{proof}
+For every $R>r_1+r_2$, Corollary~\ref{cor:local-two-radius} applies to the
+restriction of $f$ to $B_R$.  Hence $\Delta f=0$ in every such ball and
+therefore in $\D'(\R^2)$.  Weyl's lemma gives a smooth harmonic
+representative.  The final assertion follows from continuity and the usual
+mean-value theorem for harmonic functions.
+\end{proof}
+
+\section*{Declarations}
+
+\noindent\textbf{Use of generative AI.}
+The Lean formalization was completed using the local Prove2Me
+workflow~\cite{Prove2Me} with GPT-6.1 Sol. Generative AI tools also
+assisted with mathematical exploration, language, and \LaTeX{} editing.
+The authors reviewed the resulting material and take responsibility for
+the mathematical content and its correspondence with the formal statements.
+
+\begin{thebibliography}{99}
+\raggedright
+
+\bibitem{Delsarte1961}
+J.~Delsarte,
+\emph{Lectures on Topics in Mean Periodic Functions and the Two-Radius Theorem},
+Tata Institute of Fundamental Research Lectures on Mathematics, No.~22,
+Tata Institute of Fundamental Research, Bombay, 1961.
+\url{https://mathweb.tifr.res.in/Documents/Publications/Lectures/tifr22.pdf}.
+
+\bibitem{DelsarteLions1959}
+J.~Delsarte and J.-L.~Lions,
+Moyennes g\'en\'eralis\'ees,
+\emph{Comment. Math. Helv.} \textbf{33} (1959), 59--69.
+\href{https://doi.org/10.1007/BF02565907}{doi:10.1007/BF02565907}.
+
+\bibitem{DLMF}
+F.~W.~J. Olver, A.~B. Olde Daalhuis, D.~W. Lozier, B.~I. Schneider,
+R.~F. Boisvert, C.~W. Clark, B.~R. Miller, B.~V. Saunders, H.~S. Cohl,
+and M.~A. McClain (eds.),
+\emph{NIST Digital Library of Mathematical Functions}, Release 1.2.7,
+15 June 2026.
+\url{https://dlmf.nist.gov/}.
+
+\bibitem{HaymanLingham2019}
+W.~K.~Hayman and E.~F.~Lingham,
+\emph{Research Problems in Function Theory: Fiftieth Anniversary Edition},
+Problem Books in Mathematics, Springer, Cham, 2019.
+\href{https://doi.org/10.1007/978-3-030-25165-9}{doi:10.1007/978-3-030-25165-9}.
+
+\bibitem{Volchkov1996}
+V.~V.~Volchkov,
+The final version of the mean value theorem for harmonic functions,
+\emph{Math. Notes} \textbf{59} (1996), no.~3, 247--252.
+\href{https://doi.org/10.1007/BF02308535}{doi:10.1007/BF02308535}.
+
+\bibitem{Lean4}
+L.~de Moura and S.~Ullrich,
+The Lean 4 theorem prover and programming language,
+in \emph{Automated Deduction---CADE 28},
+Lecture Notes in Comput. Sci., Vol.~12699, Springer, 2021, pp.~625--635.
+\href{https://doi.org/10.1007/978-3-030-79876-5_37}{doi:10.1007/978-3-030-79876-5\_37}.
+
+\bibitem{mathlib}
+The mathlib Community,
+The Lean mathematical library,
+in \emph{Proceedings of the 9th ACM SIGPLAN International Conference on
+Certified Programs and Proofs}, ACM, 2020, pp.~367--381.
+\href{https://doi.org/10.1145/3372885.3373824}{doi:10.1145/3372885.3373824}.
+
+\bibitem{Prove2Me}
+S.~Chen, K.~Marwaha, X.~Lu, H.~Yuen, and T.~Peng,
+\emph{Prove2Me: An Open Collaborative Platform for Scaling Math Formalization},
+arXiv:2608.28433, 2026.
+\url{https://doi.org/10.48550/arXiv.2608.28433}.
+
+\bibitem{Ferudun2026}
+A.~Ferudun,
+\emph{The Equation $J_0(z)=1$ Has at Most One Solution on Each Ray:
+An Answer to a Question of Zalcman},
+EulerSolve Research Papers, AMR-022-2045, preprint,
+3 October 2026.
+\url{https://eulersolve.org/papers/amr-022-2045/}.
+
+\end{thebibliography}
+
+\end{document}

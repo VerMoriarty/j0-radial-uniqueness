@@ -1,6 +1,12 @@
 # Paper–Lean correspondence
 
-Release 1.0.0. All 120 mathematical inventory items are covered, including the 16 numbered conclusions and Introduction A/B/C. Remark 6.6 is checked separately. Source line numbers identify the manuscript used for the mathematical correspondence review; the final citation-only edits preserve all mathematical environments byte for byte (see PUBLICATION.json).
+**Historical 120-item baseline for the fixed proof release v1.0.0.** The
+[current manuscript](paper/main.tex) retains 118 items. Its full correspondence
+and evidence are in `retained-correspondence.json` inside the
+[final supplement](paper/final-supplement.zip); see the
+[verification instructions](README.md#paper-correspondence).
+
+This table preserves the original 120 mathematical inventory items, including the 16 numbered conclusions, Introduction A/B/C, and the two geometric counterexamples formerly in Remark 6.6. Source line numbers refer to that historical manuscript, not the current final paper. The original correspondence data and proof evidence below are retained as the fixed-release baseline.
 
 The concise manuscript uses energy, shifted Abel contraction, genuine µ/tµ domination, segment mean-value estimates, weak intermediate cosh bounds, and corrected-log monotonicity. Full definitions, quantified types, exact local proof evidence, and dependency references for every item are in `correspondence.json`; private/generated dependencies are included in `dependency_closures.json`.
 

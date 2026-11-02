@@ -1,14 +1,52 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "version": "1.0.0",
+  "manuscript_publication_date": "2026-11-02",
   "repository": "https://github.com/VerMoriarty/j0-radial-uniqueness",
   "release": "https://github.com/VerMoriarty/j0-radial-uniqueness/releases/tag/v1.0.0",
-  "manuscript_sha256": "53e21a915a147c9d2e719833ab1f65dc4a06e076d0744046dc9082273f7100de",
-  "manuscript_pdf_sha256": "95f7accb3a5f41d97c2886cfccbd95f954e241a39c4f1eb4327ba5d5b086fb07",
-  "reviewed_mathematical_manuscript_sha256": "b01cf0ef91ea4ffa6cc9cbc147a1bd958a404c65806a6ede970acb61a74867cd",
-  "mathematical_source_identity": "Every mathematical environment, including proofs, is byte-identical; inverse replacement of the two citation edits recovers the reviewed manuscript exactly.",
+  "fixed_code_commit": "00d977912114c7fffb189e85051914685dcee5e6",
+  "manuscript_path": "paper/main.tex",
+  "manuscript_pdf_path": "paper/j0_radial_uniqueness.pdf",
+  "supplement_path": "paper/final-supplement.zip",
+  "manuscript_sha256": "12496b1345eaf4f57bc09b45e94ef1ff9b7a5baf19b0c75e198db9f3ebd47158",
+  "manuscript_pdf_sha256": "367e00a3945b80cdf417fd4bc53b42004607d9910397248d295f96fcb49436d4",
+  "supplement_sha256": "f099c544bc418ec83e20bbc74dfdf1919479b42b71322893afe628a5c80ba842",
   "numbered_results": 16,
-  "source_math_items": 120,
-  "source_code_scope": "193 original Lean files, including 189 paper proof/definition modules; no mathematical source changes.",
-  "paper_distribution": "The manuscript PDF and TeX are supplied separately, outside the public code repository."
+  "introduction_results": [
+    "A",
+    "B",
+    "C"
+  ],
+  "source_math_items": 118,
+  "retained_Lean_roots": 248,
+  "source_code_scope": "All 193 Lean files, the checker and the fixed v1.0.0 tag are unchanged; this commit publishes the final manuscript and updates publication documentation.",
+  "paper_distribution": "The final manuscript PDF and TeX and the sealed alignment supplement are included in paper/ on the main branch.",
+  "supplement_verification": "Extract the supplement outside the code checkout. Its verifier requires a separate checkout of fixed_code_commit or its bundled fixed-code-source.zip, with the pinned dependencies; it is not a verifier for the new main commit.",
+  "supplement_snapshot": "Sealed pre-publication snapshot, copied byte for byte; its publication-status fields describe the time of that snapshot.",
+  "abstract_correspondence_note": {
+    "source_lines": [
+      60,
+      61
+    ],
+    "covered_by_inventory_items": [
+      "N5.1",
+      "P5.1-DELTA-PROPAGATE"
+    ],
+    "Lean_declarations": [
+      "J0RadialUniqueness.paper_5_1",
+      "J0RadialUniqueness.ray_separation",
+      "J0RadialUniqueness.radial_derivative_decomposition"
+    ]
+  },
+  "historical_baseline": {
+    "version": "1.0.0",
+    "commit": "00d977912114c7fffb189e85051914685dcee5e6",
+    "source_math_items": 120,
+    "additional_geometric_counterexamples": 2,
+    "correspondence": "correspondence.json",
+    "reviewed_mathematical_manuscript_sha256": "b01cf0ef91ea4ffa6cc9cbc147a1bd958a404c65806a6ede970acb61a74867cd",
+    "publication_manuscript_sha256": "53e21a915a147c9d2e719833ab1f65dc4a06e076d0744046dc9082273f7100de",
+    "publication_manuscript_pdf_sha256": "95f7accb3a5f41d97c2886cfccbd95f954e241a39c4f1eb4327ba5d5b086fb07",
+    "note": "Historical hashes and source-line references do not identify the current final manuscript."
+  }
 }
